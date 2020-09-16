@@ -7,7 +7,6 @@ function check() {
     post.setAttribute("data-load", "true");
     post.addEventListener("click", () => {
       const postId = post.getAttribute("data-id");
-      console.log(postId)
       const XHR = new XMLHttpRequest();
       XHR.open("GET", `/posts/${postId}`, true);
       XHR.responseType = "json";
@@ -15,7 +14,7 @@ function check() {
       XHR.onload = () => {
         if (XHR.status != 200) {
           alert(`Error ${XHR.status}: ${XHR.statusText}`);
-          return null;
+          return null;          
         }
         const item = XHR.response.post;
         if (item.checked === true) {
